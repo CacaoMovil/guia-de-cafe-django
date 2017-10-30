@@ -1,12 +1,12 @@
-Caja de Herramientas para Cacao
+Caja de Herramientas para Café
 ===============
-> Aprendiendo e innovando sobre el cacao en sistemas agroforestales
+> Aprendiendo e innovando sobre el café en sistemas agroforestales
 
-La Caja de Herramientas para Cacao: Aprendiendo e Innovando sobre el Manejo Sostenible del Cultivo de Cacao en Sistemas Agroforestales se compone de 10 guías prácticas para pequeños productores de cacao y sus cooperativas en la región de América Latina.
+La Caja de Herramientas para Café: Aprendiendo e Innovando sobre el Manejo Sostenible del Cultivo de Café en Sistemas Agroforestales se compone de 10 guías prácticas para pequeños productores de café y sus cooperativas en la región de América Latina.
 
 ## Información
 
-El proyecto Caja de Herramientas para Cacao esta elaborado usando el lenguaje de programación [Python](https://www.python.org/) y su framework web [Django](https://www.djangoproject.com/) usando [Postgress](http://www.postgresql.org/) como motor de base de datos, [Redis](http://redis.io/) para el almacenamiento de datos en caché y para la generación de PDF se utilizo [WKHTMLTOPDF](http://http://wkhtmltopdf.org/)
+El proyecto Caja de Herramientas para Café esta elaborado usando el lenguaje de programación [Python](https://www.python.org/) y su framework web [Django](https://www.djangoproject.com/) usando [Postgress](http://www.postgresql.org/) como motor de base de datos, [Redis](http://redis.io/) para el almacenamiento de datos en caché y para la generación de PDF se utilizo [WKHTMLTOPDF](http://http://wkhtmltopdf.org/)
 
 ## Instalación
 
@@ -73,7 +73,7 @@ Una ves instalado todas las dependencias, procederemos a configurar el proyecto,
 
 Crearemos un entorno virtual para poder alojar todas las dependencias del proyecto y que no interfiera con nuestro sistema
 
-	mkvirtualenv cacao
+	mkvirtualenv cafe
 
 Una ves creado el entorno necesitamos instalar las dependencias
 
@@ -208,6 +208,6 @@ Si quieres contribuir a este proyecto, por favor, lea el archivo de contribuyent
 
 ## Licencia
 
-Caja de Herramientas para Cacao: Aprendiendo e Innovando sobre el Manejo Sostenible del Cultivo de Cacao en Sistemas Agroforestales por Lutheran World Relief se distribuye bajo una [Licencia Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional.](http://creativecommons.org/licenses/by-nc-sa/4.0/deed.es)
+Caja de Herramientas para Café: Aprendiendo e Innovando sobre el Manejo Sostenible del Cultivo de Café en Sistemas Agroforestales por Lutheran World Relief se distribuye bajo una [Licencia Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional.](http://creativecommons.org/licenses/by-nc-sa/4.0/deed.es)
 
-El código de la aplicación Cacao Móvil y su versión web han sido liberados bajo Licencia Pública General de GNU versión 3 (GPLv3)
+El código de la aplicación Café Móvil y su versión web han sido liberados bajo Licencia Pública General de GNU versión 3 (GPLv3)
