@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load staticfiles i18n %}
+{% block content %}
+    <div class="about">
+        <div class="container contsmall">
+            <div class="row text-center">
+                <h2>C&Oacute;MO FUNCIONA</h2>
+                <div class="divgris"></div>
+                <div class="col-md-12 text-justify">
+                    <p>La tercera colección de cartillas educativas 216 "Por una caficultura rentable y competitiva",  se presenta en diferentes versiones o formatos, los cuales se explican a continuación</p>
+                    <p>&nbsp;</p>     
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="version online clearfix">
+                        <img class="pull-left" src="{% static 'img/online.png' %}" />
+                        <h3>VERSI&Oacute;N ONLINE</h3>
+                    </div>
+                    <p>Es una versión de la guías que puede ser consultada visitando el sitio <a href="http://ihcafe.cacaomovil.com">ihcafe.cacaomovil.com</a> utilizando cualquier navegador web. Es una versión funcionalmente orientada para la navegación desde computadoras de escritorio o laptops, pero también se adapta a cualquier pantalla de tablet o dispositivo móvil.</p>
+                    <p>En el menú principal se puede acceder a la Lista de guías y a información Acerca de la aplicación. Dentro de cada guía, en la parte izquierda, se cuenta con un menú desplegable que muestra el contenido de la guía y permite navegar en ella</p>
+                    <h2>Acciones</h2>
+                    <p>Dentro de cada guía, en la parte superior derecha, se cuenta con las siguientes acciones: Inicio para volver al Directorio de Guías, Imprimir para acceder a una versión imprimible de la guía , Descargar para descargar la guía en formato HTML que permitirá acceder a ella sin conexión a internet, y Guías que desplega un menú navegable para ver el resto de guías disponibles en el sitio.</p>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="version android clearfix">
+                        <img class="pull-left" src="{% static 'img/android.png' %}" />
+                        <h3>VERSI&Oacute;N APP ANDROID</h3>
+                    </div>
+                    <p>Es una versión disponible para dispositivos móviles Android, la cual ofrece una experiencia nativa de exploración del contenido de las guías en tu smartphone. La conexión a internet del smartphone es únicamente requerida para descargar los contenidos de cada guía. Posteriormente a la descarga, los contenidos pueden ser visualizados sin el requerimiento de una conectividad a la red.</p>
+        
+                    <p>La aplicación puede ser descargada en el siguiente enlace. </p>
+                    <a class="btn btn-google-play" href="https://play.google.com/store/apps/details?id=kronos.cacaomovil" >
+                    <img src="{% static 'image/google-play.png' %}" alt="image google play image">
+                    </a><br>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+{% block extra_footer %}
+<script type="text/javascript">
+    $( document ).ready(function() {
+        $('.topmenu .howworks-menu').addClass('active'); 
+    });
+</script>
+{% endblock extra_footer %}

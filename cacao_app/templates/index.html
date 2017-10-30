@@ -1,0 +1,125 @@
+<!-- START Template Container -->
+{% extends "base.html" %}
+{% load custom_sorl_tags cacao_tags i18n %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="heroimage row">
+            <div class="herotexto">Caja de herramientas para caf&eacute;</div>
+            <div class="herotexto">Por una caficultura rentable y competitiva</div>
+            <a class="btn mt20" href="#guias">VER LAS GUÍAS</a>
+        </div>
+    </div>
+    <div class="about">
+        <div class="container contsmall">
+            <div class="row">
+                <div class="col-xs-12 col-sm-4 col-md-4 store">
+                    <div class="app"><img class="phone" src="{% static 'img/phoneshad.png '%}" />
+                        <div class="apptext">
+                            <p>Puedes descargar nuestra app en google play. Disponible para dispositivos Android</p>
+                            <a href="" data-container="body" data-toggle="tooltip" data-placement="bottom" title="Estará disponible proximamente" style="display: block;"><img src="{% static 'img/gplay_button.png' %}" style="opacity: 0.2" /></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8 col-md-8">
+                    <h2 class="funcionamiento">¿EN QUÉ CONSISTE?</h2>
+                    <p>Las cartillas educativas colección 2016, muestran las principales actividades agronómicas, así como el aprovechamiento de los residuos (sólidos y líquidos) y análisis de costos, que permiten realizar una eficiente atención al cultivo del café y obtener mejores rendimientos, reduciendo los impactos ambientales.</p>
+                    <p>Esperamos que estas cartillas educativas sean de beneficio a todo el sector caficultor, especialmente a los pequeños productores de café, para que mejoren las actividades en sus fincas y generen mejores ingresos, a través de la gestión de costos y aprovechamiento de los recursos, en pro de las familias cafetaleras.</p>
+                    <p>Nuestro deseo es que las lean, compartan, y usen en sus parcelas. Y de ser posible, nos retroalimenten con sus sugerencias para mejorarlas. ¡Gracias por compartir!</p>
+                    <div class="pull-left">
+                        <div id="fb-root"></div>
+                        <script>(function(d, s, id) {
+                              var js, fjs = d.getElementsByTagName(s)[0];
+                              if (d.getElementById(id)) return;
+                              js = d.createElement(s); js.id = id;
+                              js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.5&appId={% settings_value 'FB_APP_ID' %}";
+                              fjs.parentNode.insertBefore(js, fjs);
+                        }(document, 'script', 'facebook-jssdk'));</script>
+                        <div class="fb-share-button" data-href="http://ihcafe.cacaomovil.com" data-layout="button_count"></div>
+                    </div>
+                    <div class="pull-left" style="margin-top:0px;margin-left:10px;">
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://ihcafe.cacaomovil.com">Tweet</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="guias">
+        <div class="container">
+            <div class="row">
+                <a name="guias"></a>
+                <div class="guiatext">
+                    <h2>GUÍAS</h2>
+                    <div class="divwhite"></div>
+                    <p>CLICK EN CADA GU&Iacute;A PARA LEERLA</p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+        {% for guia in guias %}
+            {% if forloop.counter0|divisibleby:4 or forloop.first %}<div class="row">{% endif %}
+                <div class="guia-list col-xs-6 col-sm-6 col-md-3">
+                    <div class="guia">
+                        {% thumbnail guia.image "300x461" crop="center" as img %}
+                            <a href="{{ guia.get_absolute_url }}" target="_blank"><img src="{{ img.url }}" alt="Cover" class="img-responsive" /></a>
+                        {% endthumbnail %}
+                        <div class="guiatitle">
+                            <p class="numero">{{ guia.number }}</p>
+                            <p class="titulo"><a href="{{ guia.get_absolute_url }}">{{ guia.name }}</a></p>
+                        </div>
+                        <div class="guiabtn">
+                            <a class="ver" href="{{ guia.get_absolute_url }}"><span>VER GU&Iacute;A</span></a>
+                            <a class="imp" href="javascript:$('.js-print-form__{{ guia.number }}').submit();" class="btn back-guia{{ guia.number }}" title="Imprimir Guía">
+                                <form class="js-print-form__{{ guia.number }}" method="GET" action="{% url 'pdf-kit:download' %}">
+                                {% csrf_token %}
+                                <input type="hidden" name="guide-id" value="{{ guia.number }}">
+                                </form>
+                             </a>
+                            <a class="des" href="/media/guia-de-cacao-completa.zip" title="Descargar Guía"></a>
+                        </div>
+                    </div>
+                </div>
+	        {% if forloop.counter|divisibleby:4 or forloop.last%}</div>{% endif %}
+        {% endfor %}
+        </div>
+    </div>
+    <div class="funcion">
+        <div class="container contsmall">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>C&Oacute;MO FUNCIONA</h2>
+                    <div class="divgris"></div>
+                </div>
+            </div>
+            <div class="row mt35">
+                <div class="col-sm-6 col-md-6">
+                    <div class="version online clearfix">
+                        <img class="pull-left" src="{% static 'img/online.png' %}" />
+                        <h3>VERSIÓN ONLINE</h3>
+                    </div>
+                    <p>Es una versión de las guías que puede ser consultada visitando el sitio <a href="http://ihcafe.cacaomovil.com/">ihcafe.cacaomovil.com</a> utilizando cualquier navegador web. Es una versión funcionalmente orientada para la navegación desde computadoras de escritorio o laptops, pero también se adapta a cualquier pantalla de tablet o dispositivo móvil.</p>
+                    <p>En el menú principal se puede acceder a la Lista de guías y a información Acerca de la aplicación. Dentro de cada guía, en la parte izquierda, se cuenta con un menú desplegable que muestra el contenido de la guía y permite navegar en ella. </p>
+                    <img class="img-responsive full" src="{% static 'img/video1.jpg' %}" />
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="version android clearfix">
+                        <img class="pull-left" src="{% static 'img/android.png' %}" />
+                        <h3>VERSIÓN APP ANDROID</h3>
+                    </div>
+                    <p>Es una versión disponible para dispositivos móviles Android, la cual ofrece una experiencia nativa de exploración del contenido de las guías en tu smartphone. La conexión a internet del smartphone es únicamente requerida para descargar los contenidoe  cada gu&iacute;a.</p>
+                    <p> Posteriormente a la descarga, los contenidos pueden ser visualizados sin el requerimiento de una conectividad a la red.</p>
+                    <img class="img-responsive full" src="{% static 'img/video2.jpg' %}" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+{% block extra_footer %}
+<script type="text/javascript">
+    $( document ).ready(function() {
+        $('.topmenu .home-menu').addClass('active');
+    });
+</script>
+{% endblock extra_footer %}

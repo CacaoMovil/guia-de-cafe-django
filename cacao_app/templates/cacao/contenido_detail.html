@@ -1,0 +1,183 @@
+{% extends "guide_detail_base.html" %}
+{% load i18n cacao_tags custom_sorl_tags cacao_tags %}
+{% block content %}
+        <!-- START Template Main -->
+        <section id="main" role="main">
+            <!-- Page Header -->
+            <nav class="page-header page-header-block affix">
+                <div class="pager">
+                    <a class="indice" href="javascript:void(0);" data-toggle="sidebar" data-direction="ltr" rel="tooltip" title="Menu sidebar">
+                        <span class="figure">
+                            <i class="ico-paragraph-justify3"></i>
+                        </span>
+                        <span class="text text-uppercase">Indice</span>
+                    </a>
+                    <div class="previous"><a href="{% if contenido.previous == None %}{% url 'guia_detail' contenido.section.guide.number %}{% else %}{% url 'contenido_detail' contenido.section.guide.number contenido.previous.slug %}{% endif %}"><i class="flaticon-previous11"></i></a></div>
+                    <div class="next"><a href="{% if contenido.next == None %}{% else %}{% url 'contenido_detail' contenido.section.guide.number contenido.next.slug %}{% endif %}"><i class="flaticon-next15"></i></a></div>
+                    <h4 class="title-item text-capitalize">TEMAS</h4>
+                </div>
+            </nav>
+            <!-- Page Header -->
+
+            <!-- START jumbotron -->
+            <section class="jumbotron jumbotron-bg2"
+            style="min-height:370px;
+            {% if contenido.image %}
+            {% thumbnail contenido.image "1563x538" crop="center" as img %}
+            background: url( {{ img.url }} ) no-repeat center top;
+          {% endthumbnail %}" {% endif %}>
+                <!-- pattern overlay -->
+                <div class="pattern overlay"></div>
+                <!--/ pattern overlay -->
+                <div class="container" style="padding-top:225px;">
+                    <div class="row">
+                        <div class="col-lg-8 col-sm-10 col-sm-offset-1 col-lg-offset-2">
+                            <h2 class="thin text-white">{{ contenido.title_content }}</h2>
+                            <p>{{ contenido.extract }}</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- font size selector -->
+                <div class="dropdown font-selector">
+                  <button class="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <b><span class="ico-text-height2"></span></b> tamaño
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-right">
+                    <li><a href="#" data-size="14" style="font-size:14px;">Normal</a></li>
+                    <li><a href="#" data-size="16" style="font-size:16px;">Grande</a></li>
+                    <li><a href="#" data-size="18" style="font-size:18px;">Extra Grande</a></li>
+                  </ul>
+                </div>
+                <!-- End Font size selector -->
+            </section>
+            <!--/ END jumbotron -->
+
+             <!-- START Template Container -->
+            <div class="container-fluid">
+                <!-- START Rows -->
+                <div class="row">
+                    <div class="col-lg-8 col-sm-10 col-sm-offset-1 col-lg-offset-2">
+                    <div class="content-body">
+                        <p> <div class="pull-left">
+                            <div id="fb-root"></div>
+                            <script>(function(d, s, id) {
+                              var js, fjs = d.getElementsByTagName(s)[0];
+                              if (d.getElementById(id)) return;
+                              js = d.createElement(s); js.id = id;
+                              js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.5&appId={% settings_value 'FB_APP_ID' %}";
+                              fjs.parentNode.insertBefore(js, fjs);
+                            }(document, 'script', 'facebook-jssdk'));</script>
+                            <div class="fb-share-button" data-href="http://cacaomovil.com{{contenido.get_absolute_url }}" data-layout="button_count"></div>
+                            </div>
+                            <div class="pull-left" style="margin-top:0px;margin-left:10px;">
+                            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://cacaomovil.com{{ contenido.get_absolute_url }}">Tweet</a>
+                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                            </div>
+                            <div style="clear:both"></div>
+                        </p>
+                        {{ contenido.description|offline_media|safe }}
+                    </div>
+                    <div class="clearfix"></div>
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-12 pull-right">
+                                {% if contenido.next == None %}
+                                {% else %}
+                                <a class="next-item" href="{% url 'contenido_detail' contenido.section.guide.number contenido.next.slug %}">
+                                    <div class="row">
+                                        <div class="col-xs-10">
+                                            <span class="text-top text-uppercase">SIGUIENTE TEMA</span>
+                                            <span> {{ contenido.next }}</span>
+                                        </div>
+                                        <div class="col-xs-2">
+                                            <i class="flaticon-right106 fsize30 pull-right"></i>
+                                        </div>
+                                    </div>
+                                </a>
+                                {% endif %}
+                            </div>
+                            <div class="col-sm-6 col-xs-12 pull-left">
+                                {% if contenido.previous == None %}
+                                {% else %}
+                                <a class="next-item" href="{% url 'contenido_detail' contenido.section.guide.number contenido.previous.slug %}">
+                                    <div class="row">
+                                        <div class="col-xs-2">
+                                            <i class="flaticon-thin35 fsize30"></i>
+                                        </div>
+                                        <div class="col-xs-10">
+                                            <span class="text-top text-uppercase">TEMA Anterior</span>
+                                            <span>{{ contenido.previous }}</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                {% endif %}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- END Rows -->
+
+            <!--/ END Template Container -->
+
+            <!-- START To Top Scroller -->
+            <a href="#" class="totop animation" data-toggle="waypoints totop" data-showanim="bounceIn" data-hideanim="bounceOut" data-offset="50%"><i class="ico-angle-up"></i></a>
+
+            <!--/ END To Top Scroller -->
+        </section>
+        <!--/ END Template Main -->
+        <style type="text/css">
+            [id^="guia-"] #header.navbar .logo-figure{
+                background-size: 60px 55px;
+            }
+            .content-img{
+                font-size: 12px;
+                text-align: center;
+                font-style: italic;
+                height: auto !important;
+            }
+            .content-body p{
+                margin-bottom: 18px;
+            }
+            .content-img img{
+                margin-bottom: 3px;
+            }
+            .page-header.page-header-block{
+               top:70px !important;
+            }
+            .font-selector{
+                position: absolute;
+                top:65px;
+                z-index: 4;
+                right: 20px;
+            }
+            [id^="guia-"] #main .page-header .indice{
+                font-size: 14px !important;
+            }
+            @media (min-width: 1500px){
+                .jumbotron-bg2{
+                    background-size: cover !important;
+                }
+            }
+            @media (max-width: 480px){
+                #header.navbar .navbar-header > .navbar-brand{
+                    padding:0;
+                }
+                [id^="guia-"] #header.navbar .navbar-toolbar{
+                    margin-left: 60px !important;
+                }
+                [id^="guia-"] #header.navbar .navbar-title {
+                    padding-left: 8px;
+                    font-size: 13px;
+                }
+            }
+            @media (max-width: 440px){
+                .content-img{
+                    width: 100% !important;
+                    float: none !important;
+                    margin: 0 auto !important;
+                    margin-bottom: 20px !important;
+                }
+            }
+        </style>
+{% endblock content %}

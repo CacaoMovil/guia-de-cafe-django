@@ -1,0 +1,307 @@
+body {
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    background: #e6e6e6;
+}
+header {
+    border-bottom: 1px solid #fff;
+}
+.h1,
+.h2,
+.h3,
+h1,
+h2,
+h3 {
+    margin-top: 0;
+}
+header .row {
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+h2 {
+    font-weight: bold;
+    position: relative;
+}
+.about h2 {
+    color: #ed3237;
+}
+.funcion h2 {
+    color: #666;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.dir {
+    margin-bottom: 10px;
+}
+.dir p {
+    margin: 0;
+}
+.dir p:first-child {
+    font-size: 18px;
+    font-weight: bold;
+}
+.about p,
+.about ul {
+    font-size: 20px;
+}
+a:hover {
+    text-decoration: none;
+}
+nav a {
+    font-family: 'Oswald', sans-serif;
+    color: #999999;
+    font-size: 20px;
+    padding-bottom: 5px;
+}
+nav a:hover {
+    color: #333;
+}
+nav li.active a {
+    border-bottom: 3px solid #8ab447;
+}
+nav ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+nav ul {
+    text-align: right;
+}
+.copyright {
+    background-image: url(../img/seamless_paper_green.png);
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+.title p {
+    color: #026937;
+    font-weight: bold;
+    margin-top: 60px;
+}
+.title:before {
+    content: '';
+    height: 150px;
+    width: 150px;
+    background: linear-gradient(135deg, #ccc 0%, #e6e6e6 50%);
+    display: block;
+    position: absolute;
+    top: -20px;
+    left: 0;
+    z-index: -1;
+}
+.contacto form:before {
+    content: '';
+    height: 400px;
+    width: 400px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.1) 0%, transparent 50%);
+    display: block;
+    position: absolute;
+    top: -50px;
+    left: 0;
+    z-index: -1;
+}
+.logo {
+    margin-top: 10px;
+}
+.heroimage {
+    background-image: url(../img/bannerdark.jpg);
+    background-size: cover;
+    padding-top: 160px;
+    padding-bottom: 130px;
+    text-align: center;
+}
+.guias {
+    background-image: url(../img/seamless_paper_green.png);
+    padding: 50px 0;
+}
+.guia {
+    margin-bottom: 40px;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+.guia img {
+    width: 100%;
+}
+.guiatitle p {
+    display: inline-block;
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 0;
+    min-height: 70px;
+    vertical-align: top;
+}
+.guiatitle p:first-child {
+    width: 26%;
+}
+.guiatitle p:last-child {
+    width: 73%;
+}
+.imp,
+.des {
+    font-size: 0;
+}
+.guiabtn a {
+    display: inline-block;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    height: 50px;
+}
+.ver {
+    background: #ed3237;
+    width: 60%;
+}
+.ver:before {
+    display: inline-block;
+    margin-right: 10px;
+    content: '';
+    width: 30px;
+    height: 30px;
+    background-image: url(../img/ver.png);
+}
+.imp {
+    background: #ec6d36;
+    width: 20%;
+}
+.imp:before {
+    display: inline-block;
+    margin-right: 10px;
+    content: '';
+    width: 30px;
+    height: 30px;
+    background-image: url(../img/imp.png);
+}
+.des {
+    background: #f19334;
+    width: 20%;
+}
+.des:before {
+    display: inline-block;
+    margin-right: 10px;
+    content: '';
+    width: 30px;
+    height: 30px;
+    background-image: url(../img/des.png);
+}
+.contsmall {
+    width: 970px;
+}
+.guiatext {
+    padding: 0 200px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 30px;
+}
+.divwhite {
+    width: 100px;
+    height: 10px;
+    background: #fff;
+    margin:auto;
+    margin-bottom: 20px;
+}
+.divgris {
+    width: 100px;
+    height: 10px;
+    background: #b3b3b3;
+    margin:auto;
+    margin-bottom: 20px;
+}
+.contacto {
+    background: #8ab447;
+    color: #026937;
+    padding: 50px 0;
+    position: relative;
+    z-index: 1;
+}
+.contacto h2 {
+    color: #fff;
+}
+.funcion {
+    padding: 50px 0;
+}
+.about {
+    padding: 50px 0;
+}
+.app {
+    text-align: center;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+.apptext {
+    background: #8ab447;
+    color: #fff;
+    padding: 20px;
+}
+.apptext p {
+    font-size: 16px;
+}
+.phone {
+    margin-bottom: 20px;
+    margin-top: -80px;
+}
+.version {
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 20px;
+    color: #666;
+}
+.version img {
+    margin-right: 20px;
+}
+.version h3 {
+    position: relative;
+}
+.online h3:before {
+    content: '';
+    width: 100px;
+    height: 10px;
+    position: absolute;
+    bottom: -20px;
+    background: #ec6d36;
+}
+.android h3:before {
+    content: '';
+    width: 100px;
+    height: 10px;
+    position: absolute;
+    bottom: -20px;
+    background: #f19334;
+}
+.herotexto {
+    font-family: 'Oswald', sans-serif;
+    color: #fff;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+.heroimage a,
+.contacto form .btn {
+    color: #fff;
+    padding: 15px 70px;
+    background: #ed3237;
+    font-weight: bold;
+}
+.contacto form .btn {
+    width: 100%;
+}
+.heroimage a:hover,
+form .btn:hover {
+    background: #b72934;
+    color: #fff;
+}
+.numero {
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    background: #e6e6e6;
+}
+.titulo {
+    color: #666;
+    text-transform: uppercase;
+    padding: 10px;
+}
+.btnbuscar {
+    background: #026937;
+    color: #fff;
+}
+.busqueda {
+ margin-bottom: 20px;  
+    margin-top: 0;
+    padding: 0;
+}

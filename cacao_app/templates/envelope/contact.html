@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load envelope_tags widget_tweaks %}
+{% block content %}
+    <div class="about">
+        <div class="container contsmall">
+            <div class="row text-center">
+                <h2>Cont&aacute;ctenos</h2>
+                <div class="divgris"></div>
+                <div class="col-sm-6 col-md-6">
+                            <!-- Form -->
+                              <div class="form-horizontal">
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <p class="form-control-static">{{ contact.contacto_general|safe }}</p>
+                                    </div>
+                                </div>
+                                <form action="{% url 'envelope-contact' %}" class="form-horizontal" method="post">
+                                  {% csrf_token %}
+                                  {% antispam_fields %}
+                                  <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <label for="contact_name" class="control-label">Nombre <span class="text-danger">*</span></label>
+                                        {{ form.sender|add_class:"form-control" }}
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <label for="contact_email" class="control-label">Email <span class="text-danger">*</span></label>
+                                        {{ form.email|add_class:"form-control" }}
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <div class="col-sm-12">
+                                          <label for="contact_email" class="control-label">Tu mensaje <span class="text-danger">*</span></label>
+                                          {{ form.message|add_class:"form-control" }}
+                                      </div>
+                                  </div>
+                                  <button class="btn btn-danger" type="submit">Enviar Mensaje</button>
+                                </form>
+                                <p></p>
+                              </div>
+                            <!--/ Form -->
+                        </div>
+                 <div class="col-sm-6 col-lg-5 col-md-6 col-lg-offset-1 col-md-offset-1">
+                 <div class="">
+                                    <address style="margin-top:80px;">
+                                        {{ contact.informacion_contacto|safe }}
+                                    </address>
+                 </div>
+            </div>
+        </div>
+    </div>
+ </div>
+    
+{% endblock content %}
+{% block extra_footer %}
+<script type="text/javascript">
+    $( document ).ready(function() {
+        $('.topmenu .contact-menu').addClass('active'); 
+    });
+</script>
+{% endblock extra_footer %}

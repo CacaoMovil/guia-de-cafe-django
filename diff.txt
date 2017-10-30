@@ -1,0 +1,138 @@
+diff --git a/cacao_app/config/common.py b/cacao_app/config/common.py
+index e329a79..50c4c36 100644
+--- a/cacao_app/config/common.py
++++ b/cacao_app/config/common.py
+@@ -119,7 +119,7 @@ class Common(Configuration):
+     # MANAGER CONFIGURATION
+     # See: https://docs.djangoproject.com/en/dev/ref/settings/#admins
+     ADMINS = (
+-        ("""Kronoscode""", 'lead@kronoscode.com'),
++        ("""Kronoscode""", 'info@cacaomovil.com'),
+     )
+ 
+     # See: https://docs.djangoproject.com/en/dev/ref/settings/#managers
+diff --git a/cacao_app/config/production.py b/cacao_app/config/production.py
+index 891df34..f812798 100644
+--- a/cacao_app/config/production.py
++++ b/cacao_app/config/production.py
+@@ -86,8 +86,8 @@ class Production(Common):
+     # END STORAGE CONFIGURATION
+ 
+     # EMAIL
+-    DEFAULT_FROM_EMAIL = values.Value('cacao_app <noreply@cacao.kronoscode.com>')
+-    #EMAIL_HOST = values.Value('smtp.sendgrid.com')
++    DEFAULT_FROM_EMAIL = values.Value('cacao_app <info@cacaomovil.com>')
++    EMAIL_HOST = values.Value('localhost')
+     #EMAIL_HOST_PASSWORD = values.SecretValue(environ_prefix="", environ_name="SENDGRID_PASSWORD")
+     #EMAIL_HOST_USER = values.SecretValue(environ_prefix="", environ_name="SENDGRID_USERNAME")
+     #EMAIL_PORT = values.IntegerValue(587, environ_prefix="", environ_name="EMAIL_PORT")
+@@ -109,13 +109,13 @@ class Production(Common):
+     # CACHING
+     # Only do this here because thanks to django-pylibmc-sasl and pylibmc
+     # memcacheify is painful to install on windows.
+-    CACHES = values.CacheURLValue(default="hiredis://127.0.0.1:6379/2")
++    CACHES = values.CacheURLValue(default="hiredis://127.0.0.1:6379/4")
+     CACHES = {
+         'default': {
+             'BACKEND': 'redis_cache.RedisCache',
+             'LOCATION': '127.0.0.1:6379',
+             'OPTIONS': {
+-                'DB': 2,
++                'DB': 4,
+                 'PARSER_CLASS': 'redis.connection.HiredisParser',
+                 'CONNECTION_POOL_CLASS': 'redis.BlockingConnectionPool',
+                 'CONNECTION_POOL_CLASS_KWARGS': {
+@@ -133,4 +133,4 @@ class Production(Common):
+     PERSEUS_SOURCE_DIR = '/tmp/perseus/guia'
+     USE_PERSEUS = False
+ 
+-    VENV_PATH = '/home/kronos/.virtualenvs/cacao'
++    VENV_PATH = '/home/ihcafe/.virtualenvs/ihcafe'
+diff --git a/cacao_app/templates/base.html b/cacao_app/templates/base.html
+index 511b21c..f24ee94 100644
+--- a/cacao_app/templates/base.html
++++ b/cacao_app/templates/base.html
+@@ -8,7 +8,8 @@
+         <meta charset="utf-8">
+         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+         <title>Caja de herramientas para cacao</title>
+-        <meta name="author" content="kronoscode.com/">
++        <meta name="robots" content="noindex">
++        <meta name="author" content="IHCAFE">
+         <meta name="description" content="">
+         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+ 
+diff --git a/cacao_app/templates/guide_detail_base.html b/cacao_app/templates/guide_detail_base.html
+index 93335f2..3818dc4 100644
+--- a/cacao_app/templates/guide_detail_base.html
++++ b/cacao_app/templates/guide_detail_base.html
+@@ -11,7 +11,8 @@
+         {% else %}
+         <title>{{ guia.name }}</title>
+         {% endif %}
+-        <meta name="author" content="LWR">
++        <meta name="author" content="IHCAFE">
++        <meta name="robots" content="noindex">
+         <meta name="description" content="CAJA DE HERRAMIENTAS PARA CACAO - Aprendiendo e innovando sobre el cacao en sistemas agroforestales">
+         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+ 
+diff --git a/cacao_app/templates/index_static.html b/cacao_app/templates/index_static.html
+index 1367561..77a204f 100644
+--- a/cacao_app/templates/index_static.html
++++ b/cacao_app/templates/index_static.html
+@@ -5,7 +5,8 @@
+         <meta charset="utf-8">
+         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+         <title>Caja de herramientas para cacao</title>
+-        <meta name="author" content="kronoscode.com/">
++        <meta name="author" content="IHCAFE">
++        <meta name="robots" content="noindex">
+         <meta name="description" content="">
+         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="contenido/{% static 'image/touch/apple-touch-icon-144x144-precomposed.png' %}">
+@@ -219,4 +220,4 @@
+             }
+         </script>
+     </body>
+-</html>
+\ No newline at end of file
++</html>
+diff --git a/requirements/base.txt b/requirements/base.txt
+index 5699dcb..52a57be 100644
+--- a/requirements/base.txt
++++ b/requirements/base.txt
+@@ -1,5 +1,5 @@
+ # Bleeding edge Django
+-django==1.7.3
++django==1.7.11
+ 
+ # Configuration
+ django-configurations==0.8
+@@ -16,14 +16,14 @@ django-crispy-forms==1.4.0
+ django-model-utils==2.2
+ 
+ # images
+-Pillow==2.6.0
++Pillow==3.0.0
+ 
+ # For user registration, either via email or social
+ # Well-built with regular release cycles!
+ django-allauth==0.18.0
+ 
+ # For the persistance stores
+-psycopg2==2.5.4
++psycopg2==2.6.1
+ 
+ # Unicode slugification
+ unicode-slugify==0.1.1
+diff --git a/requirements/production.txt b/requirements/production.txt
+index 49442d1..44dc335 100644
+--- a/requirements/production.txt
++++ b/requirements/production.txt
+@@ -5,5 +5,5 @@ django-redis-cache
+ hiredis
+ django-storages==1.1.8
+ Collectfast==0.2.1
+-gevent==1.0.1
++gevent==1.0.2
+ boto==2.32.1

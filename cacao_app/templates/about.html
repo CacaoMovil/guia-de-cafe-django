@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="about">
+        <div class="container contsmall">
+            <div class="row">
+                <div class="text-center">
+                    <h2>ACERCA DE</h2>
+                    <div class="divgris"></div>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                     <img class="img-responsive" src="{% static 'img/video1.jpg' %}" />
+                </div>
+                <div class="cm-sm-8 col-md-8">
+                    {{ about.informacion_bienvenida|safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+{% block extra_footer %}
+<script type="text/javascript">
+    $( document ).ready(function() {
+        $('.topmenu .about-menu').addClass('active'); 
+    });
+</script>
+{% endblock extra_footer %}

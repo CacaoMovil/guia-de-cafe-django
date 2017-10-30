@@ -1,0 +1,388 @@
+{% load i18n thumbnail cacao_tags %}
+<!DOCTYPE html>
+<html>
+    <!-- START Head -->
+    <head>
+        <!-- START META SECTION -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        {% if contenido %}
+        <title>{{ contenido.section.guide.name }} | {{ contenido.title_content }}</title>
+        {% else %}
+        <title>{{ guia.name }}</title>
+        {% endif %}
+        <meta name="author" content="LWR">
+        <meta name="description" content="CAJA DE HERRAMIENTAS PARA CACAO - Aprendiendo e innovando sobre el cacao en sistemas agroforestales">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        {% block meta_tags %}
+        {% if contenido %}
+        <meta property="og:site_name" content="Cacao Movil" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@LuthWorldRelief" />
+        <meta name="twitter:creator" content="@LuthWorldRelief" />
+        <meta name="twitter:url" content="http://cacaomovil.com{{ contenido.get_absolute_url }}" />
+        <meta name="twitter:title" content="{{ contenido.title_content }}" />
+        <meta name="twitter:description" content="{{ contenido.description|striptags|safe|truncatewords:30 }}" />
+        {% if contenido.banner %}
+        <meta name="twitter:image" content="http://cacaomovil.com{{ contenido.banner.url }}"/>
+        {% else %}
+        <meta property="og:image" content="http://cacaomovil.com/static/image/stellar/background.jpg" />
+        {% endif %}
+        <meta property="og:title" content="{{ contenido.title_content }}" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:url" content="http://cacaomovil.com{{ contenido.get_absolute_url }}"/>
+        {% if contenido.banner %}
+        <meta property="og:image" content="http://cacaomovil.com{{ contenido.banner.url }}" />
+        {% else %}
+        <meta property="og:image" content="http://cacaomovil.com/static/image/stellar/background.jpg" />
+        {% endif %}
+        <meta property="og:description" content="{{ contenido.description|striptags|safe|truncatewords:30 }}"/>
+        {% else %}
+        <meta property="og:site_name" content="Cacao Movil" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@LuthWorldRelief" />
+        <meta name="twitter:creator" content="@LuthWorldRelief" />
+        <meta name="twitter:url" content="http://cacaomovil.com{{ guia.get_absolute_url }}" />
+        <meta name="twitter:title" content="{{ guia.name }}" />
+        <meta name="twitter:description" content="{{ guia.description|striptags|safe|truncatewords:30 }}" />
+        {% if guia.image %}
+        <meta name="twitter:image" content="http://cacaomovil.com{{ guia.image.url }}"/>
+        {% else %}
+        <meta name="twitter:image" content="http://cacaomovil.com/static/image/stellar/background.jpg"/>
+        {% endif %}
+        <meta property="og:title" content="{{ guia.name }}" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:url" content="http://cacaomovil.com{{ guia.get_absolute_url }}"/>
+        <meta property="og:image" content="http://cacaomovil.com{{ guia.image.url }}" />
+        <meta property="og:description" content="{{ guia.description|striptags|safe|truncatewords:30 }}"/>
+        {% endif %}
+        {% endblock meta_tags %}
+
+
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'image/touch/apple-touch-icon-144x144-precomposed.png' %}">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'image/touch/apple-touch-icon-114x114-precomposed.png' %}">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'image/touch/apple-touch-icon-72x72-precomposed.png' %}">
+        <link rel="apple-touch-icon-precomposed" href="{% static 'image/touch/apple-touch-icon-57x57-precomposed.png' %}">
+        <link rel="shortcut icon" href="{% static 'image/favicon.ico' %}">
+        <!--/ END META SECTION -->
+
+        <!-- Application stylesheet : mandatory -->
+
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/layout.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/uielement.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+        <link rel="stylesheet" href="{% static 'css/colors-guias.min.css' %}">
+        <!--/ Application stylesheet -->
+        <!-- END STYLESHEETS -->
+
+        <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/jquery-migrate.min.js' %}"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                //Font size
+                if (localStorage.getItem('size-save')){
+                    var font = localStorage.getItem('size-save');
+                    console.log(font);
+                    $('html body, .jumbotron p').css("font-size",parseInt(font));
+                }
+
+                $('.font-selector .dropdown-menu li a').click(function(){
+                    var size = $(this).data("size");
+                    localStorage.setItem('size-save', size);
+                    $('html body, .jumbotron p').css("font-size",size);
+                });
+
+                // Hide menu for app
+                if (window.location.protocol != "http:") {
+                  $('#download-guide').addClass('hidden');
+                  $('#print-guide').addClass('hidden');
+                  $('#list-guide').addClass('hidden');
+                  $('#js-menu-about').removeClass('hidden');
+                  document.getElementById("guias-perseus").href="index.html";
+                  document.getElementById("guias-home-perseus").href="index.html";
+                  document.getElementById("guias-presentacion-perseus").href="index.html";
+                }
+            });
+        </script>
+
+        <!-- START JAVASCRIPT SECTION - Load only modernizr script here -->
+        <script src="{% static 'js/modernizr.2.8.3.min.js' %}"></script>
+        <!--/ END JAVASCRIPT SECTION -->
+    </head>
+    <!--/ END Head -->
+
+    <!-- START Body -->
+    <body id="guia-{% if contenido %}{{ contenido.section.guide.number }}{% else %}{{ guia.number }}{% endif %}">
+        <!-- START Template Header -->
+        <header id="header" class="navbar navbar-fixed-top">
+            <!-- START navbar header -->
+            <div class="navbar-header">
+                <!-- Brand -->
+                <a class="navbar-brand text-uppercase" href="{% url 'home' %}" id="guias-perseus">
+                    <span class="logo-figure"></span>
+                    <span class="text hidden-xs"><small>caja de herramientas</small>para cacao</span>
+                    <!-- <span class="logo-text"></span> -->
+                </a>
+                <!--/ Brand -->
+            </div>
+            <!--/ END navbar header -->
+            <!-- START Toolbar -->
+            <div class="navbar-toolbar clearfix">
+                <!-- START Left nav -->
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="text-uppercase">
+                    </li>
+                </ul>
+                <!-- Brand sm -->
+                <div class="navbar-title text-uppercase">
+                    <span><strong class="visible-lg-inline">GUÍA {% if contenido %}{{ contenido.section.guide.number }}{% else %}{{ guia.number }}{% endif %}: </strong>{% if contenido %}{{ contenido.section.guide.name }}{% else %}{{ guia.name }}{% endif %}</span>
+                </div>
+                <!--/ Brand sm -->
+                <!--/ END Left nav -->
+                <ul class="nav navbar-nav navbar-main navbar-right text-uppercase" >
+                    <li>
+                        <a href="{% url 'home' %}" title="Guías" id="guias-home-perseus">
+                            <span class="icon"><i class="flaticon-home151 fsize30"></i></span>
+                            <span class="text hidden-xs">Inicio</span>
+                        </a>
+                    </li>
+                    <li>
+                      <a  title="Guías" class="hidden-sm hidden-xs" id="print-guide" href="javascript:$('.js-print-form').submit();">
+                        <form class="js-print-form" method="GET" action="{% url 'pdf-kit:download' %}">
+                        {% csrf_token %}
+                        {% if contenido %}
+                        <input type="hidden" name="guide-id" value="{{ contenido.section.guide.number }}">
+                        {% else %}
+                        <input type="hidden" name="guide-id" value="{{ guia.number }}">
+                        {% endif %}
+                        </form>
+                        <span class="icon"><i class="flaticon-printer78"></i></span>
+                        <span class="text">Imprimir</span>
+                      </a>
+                    </li>
+                    <li>
+                        <a href="/media/guia-de-cacao-completa.zip" title="Guías" class="hidden-sm hidden-xs" id="download-guide">
+                            <span class="icon"><i class="flaticon-download170"></i></span>
+                            <span class="text hidden-xs">Descargar</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" data-toggle="sidebar" data-direction="rtl" rel="tooltip" title="Guías" id="list-guide">
+                            <span class="icon"><i class="flaticon-document9"></i></span>
+                            <span class="text hidden-xs">Guías</span>
+                        </a>
+                    </li>
+                    <!--/ Offcanvas right -->
+                </ul>
+            </div>
+            <!--/ END Toolbar -->
+        </header>
+        <!--/ END Template Header -->
+
+        <!-- START Template Sidebar (Left) -->
+        <aside class="sidebar sidebar-left sidebar-menu">
+            <!-- START Sidebar Content -->
+            <section class="content slimscroll">
+                <div class="heading">
+                    <span class="figure">
+                        <i class="ico-paragraph-justify3"></i>
+                    </span>
+                    <span class="text">Indice</span>
+                </div>
+                <!-- START Template Navigation/Menu reverse('guia_detail', args=(self.pk,)) -->
+                <ul class="topmenu topmenu-responsive" data-toggle="menu">
+                    <li {% if not contenido %}class="active"{% endif %}>
+                        <a href="{% if contenido %}{% url 'guia_detail' contenido.section.guide.number %}{% else %}{% url 'guia_detail' guia.number %}{% endif %}" id="guias-presentacion-perseus">
+                            <span class="text text-uppercase">Presentación</span>
+                        </a>
+                    </li>
+                    {% for seccion in seccion_list %}
+                    <li {% if contenido.section.id == seccion.id %}class="active open"{% endif %}>
+                        <a href="javascript:void(0);" data-toggle="submenu" data-target="#{{ seccion.id }}" data-parent=".topmenu">
+                            <span class="text text-uppercase">{{ seccion.title }}</span>
+                            <!-- <span class="arrow"></span> -->
+                        </a>
+                         <!-- START 2nd Level Menu -->
+
+                        <ul id="{{ seccion.id }}" class="submenu collapse {% if contenido.section.id == seccion.id %}in{% endif %}">
+                          {% for obj in seccion.contenidos.all %}
+                          <li {% if obj == contenido %}class="active"{% endif %}>
+                              <a href="{% url 'contenido_detail' obj.section.guide.number obj.slug %}">
+                                  <span class="figure"><i class="ico-file8"></i></span>
+                                  <span class="text">{{ obj.title }}</span>
+                              </a>
+                          </li>
+                          {% endfor %}
+                        </ul>
+                        <!--/ END 2nd Level Menu -->
+                    </li>
+                    {% endfor %}
+                    <li id="js-menu-about" class="hidden">
+                        <a href="about.html">
+                            <span class="text">Acerca de la aplicación</span>
+                        </a>
+                    </li>
+                </ul>
+                <!--/ END Template Navigation/Menu -->
+                <!-- START Sidebar summary -->
+                <!-- Summary -->
+                <h5 class="heading text-center" style="margin-top:40px;">Caja de herramientas para Cacao también disponible para dispositivos android</h5>
+                <div class="wrapper text-center">
+                    <div class="table-layout">
+                        <img src="{% static 'image/ipad.png' %}" alt="ipad image">
+                    </div>
+                    <!-- START button google play -->
+                    <div class="table-layout">
+                        <a class="btn btn-google-play" href="https://play.google.com/store/apps/details?id=kronos.cacaomovil" target="_blank" >
+                            <img src="{% static 'image/google-play.png' %}" alt="image google play image">
+                        </a>
+                    </div>
+                    <!--/ END button google play -->
+                </div>
+                <!--/ Summary -->
+                <!--/ END Sidebar summary -->
+                <!-- Credit -->
+                <hr>
+                <div class="wrapper text-center text-white">
+                    <div class="table-layout">
+                        <span style="color: #696c6e; display: block; margin-bottom: 5px;"><small>Un producto de:</small></span>
+                        <a href="/" >
+                            <img src="{% static 'image/logo/logo-min.png' %}">
+                        </a>
+                    </div>
+                </div>
+                <div class="wrapper text-center text-white">
+                    <div class="table-layout">
+                        <span style="color: #696c6e;"><small>Diseñado y desarrollado por:</small></span>
+                        <a href="http://kronoscode.com/" target="_blank" >
+                            <img src="{% static 'image/kronoscode.png' %}">
+                        </a>
+                    </div>
+                </div>
+                <!--/ Credit -->
+            </section>
+            <!--/ END Sidebar Container -->
+        </aside>
+        <!--/ END Template Sidebar (Left) -->
+        {% block content %}
+        {% endblock content %}
+        <!-- START Template Sidebar (right) -->
+        <aside class="sidebar sidebar-right">
+            <!-- START Offcanvas -->
+            <div class="content slimscroll">
+                <!-- START list guias -->
+                <ul class="list-guias list-unstyled">
+                    {% for guia in guide_items %}
+                    <a href="{{ guia.get_absolute_url }}">
+                      <li class="">
+                          <!-- thumbnail -->
+                          <div class="thumbnail animation animating delay fadeInLeft">
+                              <!-- media -->
+                              <div class="media">
+                                  <div class="header back-guia{{ guia.number }} text-uppercase text-white">
+                                      <h4 class="title" >{{ guia.name }}</h4>
+                                      <div class="guia" >
+                                          <span>Guía</span>
+                                          <span class="number">{{ guia.number }}</span>
+                                      </div>
+                                  </div>
+                                   <!-- book effect --> <div class="effect"></div> <!--/ book effect -->
+                                  <!-- toolbar overlay -->
+                                  <div class="overlay visible-md visible-lg">
+                                      <div class="toolbar">
+
+                                          <a href="{% url 'guia_detail' guia.pk %}" class="btn back-guia{{ guia.number }}" title="Ver Guía"><i class="flaticon-eye46 fsize18" ></i></a>
+
+                                          <a href="{{ guia.get_download_url }}" class="btn back-guia{{ guia.number }} hidden-sm hidden-xs" title="Descargar Guía" id="download-guide"><i class="flaticon-download170 fsize18" ></i></a>
+
+                                          <a href="./" class="btn back-guia{{ guia.number }} hidden-sm hidden-xs" title="Imprimir Guía"><i class="flaticon-printer78 fsize18" id="print-guide"></i></a>
+
+                                      </div>
+                                  </div>
+                                  <!--/ toolbar overlay -->
+                                  {% thumbnail guia.image "247x311" crop="center" as img %}
+                                  <a href="{{ guia.get_absolute_url }}"><img src="{{ img.url }}" alt="Cover" width="100%" /></a>
+                                  {% endthumbnail %}
+                              </div>
+                              <!--/ media -->
+                          </div>
+                          <!--/ thumbnail -->
+                      </li>
+                    </a>
+                    {% endfor %}
+                </ul>
+                <!--/ END list guias -->
+            </div>
+            <!--/ END Offcanvas -->
+        </aside>
+        <!--/ END Template Sidebar (right) -->
+
+        <!-- FOOTER (visible a partir de sm) -->
+        <footer class="footer hidden-md hidden-lg">
+            <!-- Credit -->
+            <section class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-6 col-480">
+                        <div class="wrapper">
+                            <div class="table-layout">
+                                <div class="col-xs-6 valign-middle text-right">
+                                    <span><small>Un producto de:</small>&nbsp&nbsp</span>
+                                </div>
+                                <div class="col-xs-6 valign-middle">
+                                    <a href="/" >
+                                        <img src="{% static 'image/logo/logo-min.png' %}">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-480">
+                        <div class="wrapper">
+                            <div class="table-layout">
+                                <div class="col-xs-7 col-sm-6 valign-middle text-right">
+                                    <span><small>Diseñado y desarrollado por:</small></span>
+                                </div>
+                                <div class="col-xs-5 col-sm-6 valign-middle">
+                                    <a href="http://kronoscode.com/" target="_blank">
+                                        <img src="{% static 'image/kronoscode.png' %}"  style="padding: 9px 0;" >
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--/ Credit -->
+        </footer>
+        <!--/ FOOTER (visible a partir de sm) -->
+
+        <!-- START JAVASCRIPT SECTION (Load javascripts at bottom to reduce load time) -->
+        <!-- Library script : mandatory -->
+        <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/core.js' %}"></script>
+        <!--/ Library script -->
+
+        <!-- App and page level script -->
+         <!-- <script type="text/javascript" src="./js/jquery.sparkline.min.js"></script> -->
+        <!-- will be use globaly as a summary on sidebar menu -->
+        <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
+
+        <!--/ App and page level script -->
+        <!-- Analytics -->
+        <script type="text/javascript">
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', '{% settings_value "GA_APP_ID" %}', 'auto');
+          ga('send', 'pageview');
+
+        </script>
+        <!--/ END JAVASCRIPT SECTION -->
+    </body>
+    <!--/ END Body -->
+</html>

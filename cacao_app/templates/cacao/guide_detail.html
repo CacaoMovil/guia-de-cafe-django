@@ -1,0 +1,134 @@
+{% extends "guide_detail_base.html" %}
+{% load cacao_tags custom_sorl_tags cacao_tags %}
+
+{% block content %}
+<!-- START Template Main -->
+        <section id="main" role="main">
+            <!-- Page Header -->
+            <nav class="page-header page-header-block affix">
+                <div class="pager">
+                    <a class="indice" href="javascript:void(0);" data-toggle="sidebar" data-direction="ltr" rel="tooltip" title="Menu sidebar">
+                        <span class="figure">
+                            <i class="ico-paragraph-justify3"></i>
+                        </span>
+                        <span class="text text-uppercase">Indice</span>
+                    </a>
+                    {% if guia.next_section %}
+                    <div class="next"><a href="{% url 'contenido_detail' guia.number guia.next_section.slug %}"><i class="flaticon-next15"></i></a></div>
+                    {% endif %}
+                    <h4 class="title-item text-capitalize">Presentación</h4>
+                </div>
+            </nav>
+            <!-- Page Header -->
+<!-- START Template Container -->
+            <div class="container-fluid">
+                <!-- START Rows -->
+                <div class="row">
+                    <div class="col-lg-8 col-sm-10 col-sm-offset-1 col-lg-offset-2">
+                        <!-- font size selector -->
+                        <div class="dropdown font-selector pull-right">
+                          <button class="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <b><span class="ico-text-height2"></span></b> tamaño
+                            <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="#" data-size="14" style="font-size:14px;">Normal</a></li>
+                            <li><a href="#" data-size="16" style="font-size:16px;">Grande</a></li>
+                            <li><a href="#" data-size="18" style="font-size:18px;">Extra Grande</a></li>
+                          </ul>
+                        </div>
+                        <!-- End Font size selector -->
+                        <p class="fsize18 mt15 clearfix"></p>
+                        <div class="content-body">
+                        <p> <div class="pull-left">
+                            <div id="fb-root"></div>
+                            <script>(function(d, s, id) {
+                              var js, fjs = d.getElementsByTagName(s)[0];
+                              if (d.getElementById(id)) return;
+                              js = d.createElement(s); js.id = id;
+                              js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.5&appId={% settings_value 'FB_APP_ID' %}";
+                              fjs.parentNode.insertBefore(js, fjs);
+                            }(document, 'script', 'facebook-jssdk'));</script>
+                            <div class="fb-share-button" data-href="http://cacaomovil.com{{ guia.get_absolute_url }}" data-layout="button_count"></div>
+                            </div>
+                            <div class="pull-left" style="margin-top:0px;margin-left:10px;">
+                            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://cacaomovil.com{{ guia.get_absolute_url }}">Tweet</a>
+                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                            </div>
+                            <div style="clear:both"></div>
+                        </p>
+                        {{ guia.description|offline_media|safe }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5 col-sm-6 col-sm-offset-3 col-md-offset-6">
+                        {% if guia.next_section %}
+                        <a class="next-item" href="{% url 'contenido_detail' guia.number guia.next_section.slug %}">
+                            <div class="row">
+                                <div class="col-xs-10">
+                                    <span class="text-top text-uppercase">SIGUIENTE TEMA</span>
+                                    <span>{{ guia.next_section }}</span>
+                                </div>
+                                <div class="col-xs-2">
+                                    <i class="flaticon-right106 fsize30"></i>
+                                </div>
+                            </div>
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+                <!-- END Rows -->
+            </div>
+            <!--/ END Template Container -->
+
+            <!-- START To Top Scroller -->
+            <a href="#" class="totop animation" data-toggle="waypoints totop" data-showanim="bounceIn" data-hideanim="bounceOut" data-offset="50%"><i class="ico-angle-up"></i></a>
+            <!--/ END To Top Scroller -->
+        </section>
+<!--/ END Template Main -->
+<style type="text/css">
+    .page-header.page-header-block{
+       top:70px !important;
+    }
+    [id^="guia-"] #header.navbar .logo-figure{
+        background-size: 60px 55px;
+    }
+    [id^="guia-"] #main .page-header .indice{
+        font-size: 14px !important;
+    }
+    .content-img{
+        font-size: 12px;
+        text-align: center;
+        font-style: italic;
+        height: auto !important;
+    }
+    .content-img img{
+        margin-bottom: 3px;
+    }
+    .content-body p{
+        margin-bottom: 18px;
+    }
+    @media (max-width: 480px){
+        #header.navbar .navbar-header > .navbar-brand{
+            padding:0;
+        }
+        [id^="guia-"] #header.navbar .navbar-toolbar{
+            margin-left: 60px !important;
+        }
+        [id^="guia-"] #header.navbar .navbar-title {
+            padding-left: 8px;
+            font-size: 13px;
+        }
+    }
+    @media (max-width: 440px){
+        .content-img{
+            width: 100% !important;
+            float: none !important;
+            margin: 0 auto !important;
+            margin-bottom: 20px !important;
+        }
+    }
+</style>
+
+{% endblock content %}
