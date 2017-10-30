@@ -1,0 +1,376 @@
+/* ----------------------------
+ *
+ * Table
+ *
+ * --------------------------- */
+.content-body {
+  /* image */
+  /* Table email */
+  /* 
+     * meta 
+     */
+  /* 
+     * message 
+     */
+  /* Table layout */
+  /* Table contextual */
+  /* 
+     * hover 
+     */
+  /* 
+     * striped 
+     */
+  /* 
+     * stroke 
+     */
+  /* 
+     * active 
+     */
+  /* 
+     * info 
+     */
+  /* 
+     * warning 
+     */
+  /* 
+     * success 
+     */
+  /* 
+     * danger 
+     */
+  /* Table td toolbar */
+  /* Media query
+     -------------------------------*/
+}
+.content-body table {
+  margin-bottom: 25px;
+  margin-top: 25px;
+  border: 0;
+  background-color: #fff;
+  border-top: #d9d9d9 1px solid;
+}
+.content-body table > thead > tr > th,
+.content-body table > tbody > tr > th,
+.content-body table > tfoot > tr > th,
+.content-body table > thead > tr > td,
+.content-body table > tbody > tr > td,
+.content-body table > tfoot > tr > td {
+  vertical-align: middle;
+  border-color: #d9d9d9;
+  padding: 10px;
+}
+.content-body table > thead > tr > th,
+.content-body table tr > th {
+  color: #5e5e5e;
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+  background-color: #eaeaea;
+}
+.content-body table > thead > tr > th {
+  border-bottom: 2px solid #d9d9d9 !important;
+}
+.content-body table-responsive > table {
+  margin-bottom: 0px;
+}
+.content-body table .media-object {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+}
+.content-body table .media-object > img {
+  width: 100%;
+}
+.content-body table-email > tbody > tr:first-child > td {
+  border-top-width: 0px;
+}
+.content-body table-email > tbody > tr > td.meta > .sender {
+  margin: 0px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #5e5e5e;
+}
+.content-body table-email > tbody > tr > td.meta > .date {
+  margin: 0px;
+  font-size: 12px;
+  color: #aaaaaa;
+}
+.content-body table-email > tbody > tr > td.message > .heading {
+  margin: 0px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.content-body table-email > tbody > tr > td.message > .text {
+  margin: 0px;
+  color: #919191;
+}
+.content-body table-layout {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  margin-bottom: 20px;
+  padding: 0px;
+}
+.content-body table-layouttable-layout-section > [class*=" col-xs"],
+.content-body table-layouttable-layout-section > [class^="col-xs"] {
+  border-right: 1px solid #f2f2f2;
+}
+.content-body table-layouttable-layout-section > [class*=" col-xs"]:last-child,
+.content-body table-layouttable-layout-section > [class^="col-xs"]:last-child {
+  border-right-width: 0px;
+}
+.content-body table-layout > [class*=" col-"],
+.content-body table-layout > [class^="col-"] {
+  padding: 0px;
+}
+.content-body table-layout > .col-xs-1,
+.content-body table-layout > .col-xs-2,
+.content-body table-layout > .col-xs-3,
+.content-body table-layout > .col-xs-4,
+.content-body table-layout > .col-xs-5,
+.content-body table-layout > .col-xs-6,
+.content-body table-layout > .col-xs-7,
+.content-body table-layout > .col-xs-8,
+.content-body table-layout > .col-xs-9,
+.content-body table-layout > .col-xs-10,
+.content-body table-layout > .col-xs-11 {
+  display: table-cell;
+  table-layout: fixed;
+  float: none;
+  vertical-align: middle;
+}
+@media (min-width: 768px) {
+  .content-body table-layout > .col-sm-1,
+  .content-body table-layout > .col-sm-2,
+  .content-body table-layout > .col-sm-3,
+  .content-body table-layout > .col-sm-4,
+  .content-body table-layout > .col-sm-5,
+  .content-body table-layout > .col-sm-6,
+  .content-body table-layout > .col-sm-7,
+  .content-body table-layout > .col-sm-8,
+  .content-body table-layout > .col-sm-9,
+  .content-body table-layout > .col-sm-10,
+  .content-body table-layout > .col-sm-11 {
+    display: table-cell;
+    table-layout: fixed;
+    float: none;
+    vertical-align: middle;
+  }
+  .content-body table-layouttable-layout-section > [class*=" col-sm"],
+  .content-body table-layouttable-layout-section > [class^="col-sm"] {
+    border-right: 1px solid #f2f2f2;
+  }
+  .content-body table-layouttable-layout-section > [class*=" col-sm"]:last-child,
+  .content-body table-layouttable-layout-section > [class^="col-sm"]:last-child {
+    border-right-width: 0px;
+  }
+}
+@media (min-width: 992px) {
+  .content-body table-layout > .col-md-1,
+  .content-body table-layout > .col-md-2,
+  .content-body table-layout > .col-md-3,
+  .content-body table-layout > .col-md-4,
+  .content-body table-layout > .col-md-5,
+  .content-body table-layout > .col-md-6,
+  .content-body table-layout > .col-md-7,
+  .content-body table-layout > .col-md-8,
+  .content-body table-layout > .col-md-9,
+  .content-body table-layout > .col-md-10,
+  .content-body table-layout > .col-md-11 {
+    display: table-cell;
+    table-layout: fixed;
+    float: none;
+    vertical-align: middle;
+  }
+  .content-body table-layouttable-layout-section > [class*=" col-md"],
+  .content-body table-layouttable-layout-section > [class^="col-md"] {
+    border-right: 1px solid #f2f2f2;
+  }
+  .content-body table-layouttable-layout-section > [class*=" col-md"]:last-child,
+  .content-body table-layouttable-layout-section > [class^="col-md"]:last-child {
+    border-right-width: 0px;
+  }
+}
+@media (min-width: 1200px) {
+  .content-body table-layout > .col-lg-1,
+  .content-body table-layout > .col-lg-2,
+  .content-body table-layout > .col-lg-3,
+  .content-body table-layout > .col-lg-4,
+  .content-body table-layout > .col-lg-5,
+  .content-body table-layout > .col-lg-6,
+  .content-body table-layout > .col-lg-7,
+  .content-body table-layout > .col-lg-8,
+  .content-body table-layout > .col-lg-9,
+  .content-body table-layout > .col-lg-10,
+  .content-body table-layout > .col-lg-11 {
+    display: table-cell;
+    table-layout: fixed;
+    float: none;
+    vertical-align: middle;
+  }
+  .content-body table-layouttable-layout-section > [class*=" col-lg"],
+  .content-body table-layouttable-layout-section > [class^="col-lg"] {
+    border-right: 1px solid #f2f2f2;
+  }
+  .content-body table-layouttable-layout-section > [class*=" col-lg"]:last-child,
+  .content-body table-layouttable-layout-section > [class^="col-lg"]:last-child {
+    border-right-width: 0px;
+  }
+}
+.content-body table-hover > tbody > tr:hover > td,
+.content-body table-hover > tbody > tr:hover > th {
+  background-color: #f8f8f8;
+}
+.content-body table-striped > tbody > tr:nth-child(odd) > td,
+.content-body table-striped > tbody > tr.odd > td,
+.content-body table-striped > tbody > tr:nth-child(odd) > th,
+.content-body table-striped > tbody > tr.odd > th {
+  background-color: #fbfbfb;
+}
+.content-body table > thead > tr > td.stroke,
+.content-body table > tbody > tr > td.stroke,
+.content-body table > tfoot > tr > td.stroke,
+.content-body table > thead > tr > th.stroke,
+.content-body table > tbody > tr > th.stroke,
+.content-body table > tfoot > tr > th.stroke,
+.content-body table > thead > tr.stroke > td,
+.content-body table > tbody > tr.stroke > td,
+.content-body table > tfoot > tr.stroke > td,
+.content-body table > thead > tr.stroke > th,
+.content-body table > tbody > tr.stroke > th,
+.content-body table > tfoot > tr.stroke > th {
+  background-color: #f5f5f5;
+  color: #ccc;
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.8);
+  text-decoration: line-through;
+}
+.content-body table-hover > tbody > tr.stroke:hover > td {
+  background-color: #f5f5f5;
+}
+.content-body table > thead > tr > td.active,
+.content-body table > tbody > tr > td.active,
+.content-body table > tfoot > tr > td.active,
+.content-body table > thead > tr > th.active,
+.content-body table > tbody > tr > th.active,
+.content-body table > tfoot > tr > th.active,
+.content-body table > thead > tr.active > td,
+.content-body table > tbody > tr.active > td,
+.content-body table > tfoot > tr.active > td,
+.content-body table > thead > tr.active > th,
+.content-body table > tbody > tr.active > th,
+.content-body table > tfoot > tr.active > th,
+.content-body table-hover > tbody > tr.active:hover > td,
+.content-body table-hover > tbody > tr > .active:hover,
+.content-body table-hover > tbody > .active:hover > td,
+.content-body table-hover > tbody > .active:hover > th {
+  background-color: #f5f5f5 !important;
+  border-color: #d9d9d9;
+}
+.content-body table > thead > tr > td.info,
+.content-body table > tbody > tr > td.info,
+.content-body table > tfoot > tr > td.info,
+.content-body table > thead > tr > th.info,
+.content-body table > tbody > tr > th.info,
+.content-body table > tfoot > tr > th.info,
+.content-body table > thead > tr.info > td,
+.content-body table > tbody > tr.info > td,
+.content-body table > tfoot > tr.info > td,
+.content-body table > thead > tr.info > th,
+.content-body table > tbody > tr.info > th,
+.content-body table > tfoot > tr.info > th,
+.content-body table-hover > tbody > tr.info:hover > td,
+.content-body table-hover > tbody > tr > .info:hover,
+.content-body table-hover > tbody > .info:hover > td,
+.content-body table-hover > tbody > .info:hover > th {
+  background-color: #e9f9fc !important;
+  border-color: #d3f3f9;
+}
+.content-body table > thead > tr > td.warning,
+.content-body table > tbody > tr > td.warning,
+.content-body table > tfoot > tr > td.warning,
+.content-body table > thead > tr > th.warning,
+.content-body table > tbody > tr > th.warning,
+.content-body table > tfoot > tr > th.warning,
+.content-body table > thead > tr.warning > td,
+.content-body table > tbody > tr.warning > td,
+.content-body table > tfoot > tr.warning > td,
+.content-body table > thead > tr.warning > th,
+.content-body table > tbody > tr.warning > th,
+.content-body table > tfoot > tr.warning > th,
+.content-body table-hover > tbody > tr.warning:hover > td,
+.content-body table-hover > tbody > tr > .warning:hover,
+.content-body table-hover > tbody > .warning:hover > td,
+.content-body table-hover > tbody > .warning:hover > th {
+  background-color: #fff9ea !important;
+  border-color: #fff3d5;
+}
+.content-body table > thead > tr > td.success,
+.content-body table > tbody > tr > td.success,
+.content-body table > tfoot > tr > td.success,
+.content-body table > thead > tr > th.success,
+.content-body table > tbody > tr > th.success,
+.content-body table > tfoot > tr > th.success,
+.content-body table > thead > tr.success > td,
+.content-body table > tbody > tr.success > td,
+.content-body table > tfoot > tr.success > td,
+.content-body table > thead > tr.success > th,
+.content-body table > tbody > tr.success > th,
+.content-body table > tfoot > tr.success > th,
+.content-body table-hover > tbody > tr.success:hover > td,
+.content-body table-hover > tbody > tr > .success:hover,
+.content-body table-hover > tbody > .success:hover > td,
+.content-body table-hover > tbody > .success:hover > th {
+  background-color: #e0f0cf !important;
+  border-color: #d2e8b8;
+}
+.content-body table > thead > tr > td.danger,
+.content-body table > tbody > tr > td.danger,
+.content-body table > tfoot > tr > td.danger,
+.content-body table > thead > tr > th.danger,
+.content-body table > tbody > tr > th.danger,
+.content-body table > tfoot > tr > th.danger,
+.content-body table > thead > tr.danger > td,
+.content-body table > tbody > tr.danger > td,
+.content-body table > tfoot > tr.danger > td,
+.content-body table > thead > tr.danger > th,
+.content-body table > tbody > tr.danger > th,
+.content-body table > tfoot > tr.danger > th,
+.content-body table-hover > tbody > tr.danger:hover > td,
+.content-body table-hover > tbody > tr > .danger:hover,
+.content-body table-hover > tbody > .danger:hover > td,
+.content-body table-hover > tbody > .danger:hover > th {
+  background-color: #fcdee2 !important;
+  border-color: #faccd1;
+}
+.content-body table td .toolbar {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+.content-body table td .toolbar .btn.btn-link {
+  border: none;
+  padding: 0px 5px;
+}
+.content-body table td .toolbar.toolbar-hover {
+  display: none;
+}
+.content-body table tr:hover .toolbar.toolbar-hover {
+  display: inline-block;
+}
+@media (max-width: 768px) {
+  .content-body table td .toolbar {
+    min-width: 80px;
+  }
+  .content-body table-responsive {
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    border: 0px;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    -webkit-overflow-scrolling: touch;
+  }
+  .content-body .panel table-responsive {
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+  }
+}
