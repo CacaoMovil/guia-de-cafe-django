@@ -59,12 +59,13 @@
         {% endif %}
         {% endblock meta_tags %}
 
-
+        <!--
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'image/touch/apple-touch-icon-144x144-precomposed.png' %}">
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'image/touch/apple-touch-icon-114x114-precomposed.png' %}">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'image/touch/apple-touch-icon-72x72-precomposed.png' %}">
         <link rel="apple-touch-icon-precomposed" href="{% static 'image/touch/apple-touch-icon-57x57-precomposed.png' %}">
-        <link rel="shortcut icon" href="{% static 'image/favicon.ico' %}">
+        -->
+        <link rel="shortcut icon" href="{% static 'image/favicon.png' %}">
         <!--/ END META SECTION -->
 
         <!-- Application stylesheet : mandatory -->
@@ -73,7 +74,7 @@
         <link rel="stylesheet" href="{% static 'css/layout.min.css' %}">
         <link rel="stylesheet" href="{% static 'css/uielement.min.css' %}">
         <link rel="stylesheet" href="{% static 'css/custom.css' %}">
-        <link rel="stylesheet" href="{% static 'css/colors-guias.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/colors-guias.css' %}">
         <link rel="stylesheet" href="{% static 'css/alternative.css' %}">
         <!--/ Application stylesheet -->
         <!-- END STYLESHEETS -->
@@ -230,14 +231,14 @@
                 <!--/ END Template Navigation/Menu -->
                 <!-- START Sidebar summary -->
                 <!-- Summary -->
-                <h5 class="heading text-center" style="margin-top:40px;">Caja de herramientas para Cacao también disponible para dispositivos android</h5>
-                <div class="wrapper text-center">
+                <h5 class="heading text-center" style="margin-top:40px;opacity: 0.35;">Caja de herramientas para Café también disponible para dispositivos android</h5>
+                <div class="wrapper text-center" style="opacity: 0.35">
                     <div class="table-layout">
-                        <img src="{% static 'image/ipad.png' %}" alt="ipad image">
+                        <img src="{% static 'image/ipad.png' %}" alt="ipad image" data-container="body" data-toggle="tooltip" data-placement="bottom" title="Estará disponible proximamente">
                     </div>
                     <!-- START button google play -->
                     <div class="table-layout">
-                        <a class="btn btn-google-play" href="https://play.google.com/store/apps/details?id=kronos.cacaomovil" target="_blank" >
+                        <a class="btn btn-google-play" target="_blank" data-container="body" data-toggle="tooltip" data-placement="bottom" title="Estará disponible proximamente">
                             <img src="{% static 'image/google-play.png' %}" alt="image google play image">
                         </a>
                     </div>
