@@ -374,3 +374,15 @@
     border-top: 0px;
   }
 }
+@media (max-width: 650px) {
+  .table-responsive tr td {
+    width: 100%;
+    display: block !important;
+    border: #eee 1px solid;
+  }
+  .table-responsive tr td img {
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 auto;
+  }
+}
