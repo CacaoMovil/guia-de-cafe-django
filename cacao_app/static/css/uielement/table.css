@@ -375,6 +375,9 @@
   }
 }
 @media (max-width: 650px) {
+  .table-responsive {
+    width: 100% !important;
+  }
   .table-responsive tr td {
     width: 100%;
     display: block !important;
