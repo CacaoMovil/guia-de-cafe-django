@@ -290,11 +290,15 @@
                                   <div class="overlay visible-md visible-lg">
                                       <div class="toolbar">
 
-                                          <a href="{% url 'guia_detail' guia.pk %}" class="btn back-guia{{ guia.number }}" title="Ver Guía"><i class="flaticon-eye46 fsize18" ></i></a>
+                                          <a href="{% url 'guia_detail' guia.number %}" class="btn back-guia{{ guia.number }}" title="Ver Guía"><i class="flaticon-eye46 fsize18" ></i></a>
 
                                           <a href="{{ guia.get_download_url }}" class="btn back-guia{{ guia.number }} hidden-sm hidden-xs" title="Descargar Guía" id="download-guide"><i class="flaticon-download170 fsize18" ></i></a>
 
-                                          <a href="./" class="btn back-guia{{ guia.number }} hidden-sm hidden-xs" title="Imprimir Guía"><i class="flaticon-printer78 fsize18" id="print-guide"></i></a>
+                                          <a href="javascript:$('.js-print-form__{{ guia.number }}').submit();" class="btn back-guia{{ guia.number }} hidden-sm hidden-xs" title="Imprimir Guía"><i class="flaticon-printer78 fsize18" id="print-guide"></i>
+                                            <form class="js-print-form__{{ guia.number }}" method="GET" action="{% url 'pdf-kit:download' %}">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="guide-id" value="{{ guia.number }}"></form>
+                                          </a>
 
                                       </div>
                                   </div>
@@ -365,6 +369,7 @@
          <!-- <script type="text/javascript" src="./js/jquery.sparkline.min.js"></script> -->
         <!-- will be use globaly as a summary on sidebar menu -->
         <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
+
 
         <!--/ App and page level script -->
         <!-- Analytics -->
