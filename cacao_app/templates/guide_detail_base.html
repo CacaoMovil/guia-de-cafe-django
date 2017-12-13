@@ -289,7 +289,7 @@
                                   <div class="overlay visible-md visible-lg">
                                       <div class="toolbar">
 
-                                          <a href="{% url 'guia_detail' guia.pk %}" class="btn back-guia{{ guia.number }}" title="Ver Guía"><i class="flaticon-eye46 fsize18" ></i></a>
+                                          <a href="{% url 'guia_detail' guia.number %}" class="btn back-guia{{ guia.number }}" title="Ver Guía"><i class="flaticon-eye46 fsize18" ></i></a>
 
                                           <a href="{{ guia.get_download_url }}" class="btn back-guia{{ guia.number }} hidden-sm hidden-xs" title="Descargar Guía" id="download-guide"><i class="flaticon-download170 fsize18" ></i></a>
 
