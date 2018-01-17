@@ -15,12 +15,13 @@ h3 {
     margin-top: 0;
 }
 header .row {
-    padding-bottom: 20px;
-    padding-top: 20px;
+    padding-bottom: 5px;
+    padding-top: 5px;
 }
 h2 {
     font-weight: bold;
     position: relative;
+    font-size: 26px !important;
 }
 .about h2 {
     color: #ed3237;
@@ -35,10 +36,15 @@ h2 {
 }
 .dir p {
     margin: 0;
+    font-size: 18px;
 }
 .dir p:first-child {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
+}
+
+.dir p a {
+    color:#075e30;
 }
 .about p,
 .about ul {
@@ -74,9 +80,11 @@ nav ul {
     margin-top: 40px;
 }
 .title p {
-    color: #026937;
-    font-weight: bold;
-    margin-top: 60px;
+    color: #09466a;
+    font-size: 29px;
+    margin-top: 7px;
+    font-family: 'Oswald', sans-serif;
+    width: 130px;
 }
 .title:before {
     content: '';

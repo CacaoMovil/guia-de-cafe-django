@@ -4,7 +4,7 @@
 {% block content %}
     <div class="container-fluid">
         <div class="heroimage row">
-            <div class="herotexto">Caja de herramientas para caf&eacute;</div>
+            <div class="herotexto">Guías para caf&eacute;</div>
             <div class="herotexto">Por una caficultura rentable y competitiva</div>
             <a class="btn mt20" href="#guias">VER LAS GUÍAS</a>
         </div>
@@ -16,7 +16,7 @@
                     <div class="app"><img class="phone" src="{% static 'img/phoneshad2.png '%}" />
                         <div class="apptext">
                             <p>Puedes descargar nuestra app en google play. Disponible para dispositivos Android</p>
-                            <a href="" data-container="body" data-toggle="tooltip" data-placement="bottom" title="Estará disponible proximamente" style="display: block;"><img src="{% static 'img/gplay_button.png' %}" style="opacity: 0.2" /></a>
+                            <a href="" data-container="body" data-toggle="tooltip" data-placement="bottom" title="Estará disponible proximamente" style="display: block;"><img src="{% static 'img/gplay_button.png' %}"/></a>
                         </div>
                     </div>
                 </div>
@@ -28,16 +28,16 @@
                     <div class="pull-left">
                         <div id="fb-root"></div>
                         <script>(function(d, s, id) {
-                              var js, fjs = d.getElementsByTagName(s)[0];
-                              if (d.getElementById(id)) return;
-                              js = d.createElement(s); js.id = id;
-                              js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.5&appId={% settings_value 'FB_APP_ID' %}";
-                              fjs.parentNode.insertBefore(js, fjs);
+                          var js, fjs = d.getElementsByTagName(s)[0];
+                          if (d.getElementById(id)) return;
+                          js = d.createElement(s); js.id = id;
+                          js.src = 'https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.11&appId=1791046347876767';
+                          fjs.parentNode.insertBefore(js, fjs);
                         }(document, 'script', 'facebook-jssdk'));</script>
-                        <div class="fb-share-button" data-href="http://ihcafe.cacaomovil.com" data-layout="button_count"></div>
+                        <div class="fb-share-button" data-href="http://ihcafe.cacaomovil.com" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fihcafe.cacaomovil.com%2F&amp;src=sdkpreparse">Compartir</a></div>
                     </div>
                     <div class="pull-left" style="margin-top:0px;margin-left:10px;">
-                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://ihcafe.cacaomovil.com">Tweet</a>
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://ihcafe.cacaomovil.com" data-size="large">Tweet</a>
                         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
                     </div>
                     <div style="clear:both"></div>
@@ -88,7 +88,7 @@
         <div class="container contsmall">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>C&Oacute;MO FUNCIONA</h2>
+                    <h2> ¿C&Oacute;MO FUNCIONA?</h2>
                     <div class="divgris"></div>
                 </div>
             </div>
@@ -100,7 +100,7 @@
                     </div>
                     <p>Es una versión de las guías que puede ser consultada visitando el sitio <a href="http://ihcafe.cacaomovil.com/">ihcafe.cacaomovil.com</a> utilizando cualquier navegador web. Es una versión funcionalmente orientada para la navegación desde computadoras de escritorio o laptops, pero también se adapta a cualquier pantalla de tablet o dispositivo móvil.</p>
                     <p>En el menú principal se puede acceder a la Lista de guías y a información Acerca de la aplicación. Dentro de cada guía, en la parte izquierda, se cuenta con un menú desplegable que muestra el contenido de la guía y permite navegar en ella. </p>
-                    <img class="img-responsive full" src="{% static 'img/video1.jpg' %}" />
+                    <img class="img-responsive full" src="{% static 'img/como-funciona.jpg' %}" />
                 </div>
                 <div class="col-sm-6 col-md-6">
                     <div class="version android clearfix">
@@ -108,8 +108,8 @@
                         <h3>VERSIÓN APP ANDROID</h3>
                     </div>
                     <p>Es una versión disponible para dispositivos móviles Android, la cual ofrece una experiencia nativa de exploración del contenido de las guías en tu smartphone. La conexión a internet del smartphone es únicamente requerida para descargar los contenidoe  cada gu&iacute;a.</p>
-                    <p> Posteriormente a la descarga, los contenidos pueden ser visualizados sin el requerimiento de una conectividad a la red.</p>
-                    <img class="img-responsive full" src="{% static 'img/video2.jpg' %}" />
+                    <p> Posteriormente a la descarga, los contenidos pueden ser visualizados sin el requerimiento de una conectividad a la red.</p><p style="height: 35px"></p>
+                    <img class="img-responsive full" src="{% static 'img/como-funciona-2.jpg' %}" />
                 </div>
             </div>
         </div>

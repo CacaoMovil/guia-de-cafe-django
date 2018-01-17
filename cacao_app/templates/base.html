@@ -35,7 +35,7 @@
                   </a>
                 </div>
                 <div class="col-xs-8 title col-sm-1 col-md-2">
-                    <p>CAJA DE HERRAMIENTAS PARA CAFÉ</p>
+                    <p>GUÍAS PARA CAFE</p>
                 </div>
                 <div class="col-xs-12 col-sm-9 col-md-8 main-menu">
                     <div class="hidden-xs">
@@ -60,11 +60,11 @@
                        </div>
                        <div class="col-xs-12 collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                        <ul class="nav navbar-nav">
-                            <li{% if request.path == '/acerca-de/' %} class="active"{% endif %}><a href="{% url 'about' %}">ACERCA DE LA APLICACIÓN</a>
-                            </li>
                             <li><a href="{% url 'home' %}#guias">LISTA DE GUÍAS</a>
                             </li>
                             <li {% if  request.path  == '/como-funciona/' %} class="active"{% endif %}><a href="{% url 'how_it_works' %}">COMO FUNCIONA</a>
+                            </li>
+                            <li{% if request.path == '/acerca-de/' %} class="active"{% endif %}><a href="{% url 'about' %}">ACERCA DE LA APLICACIÓN</a>
                             </li>
                             <li {% if  request.path  == '/contacto/' %} class="active"{% endif %}><a href="{% url 'envelope-contact' %}">CONTÁCTANOS</a>
                             </li>
@@ -80,22 +80,20 @@
     <footer class="contacto">
         <div class="container">
             <div class="row ">
-                <div class="col-xs-4 col-sm-2 col-md-2">
-                    <a href="#"><img src="{% static 'img/footer2.png' %}" class="img-responsive"/></a>
+                <div class="col-xs-3 col-sm-1 col-md-1">
+                    <a href="#"><img width="60" src="{% static 'image/logo/vaina-cacao.png' %}" class="img-responsive"/></a>
                 </div>
-                <div class="col-xs-8 col-sm-4 col-md-4">
+                <div class="col-xs-9 col-sm-5 col-md-5">
                     <div class="dir">
-                        <p>Oficina Regional Para Centro América y Haití</p>
-                        <p>Puedes contactarnos escribiendo a info@ihcafe.hn o usando nuestro formulario de contacto.<p>
-                            <a href="www.lwr.org">www.lwr.org
-                            </a>
-                        <p>Facebook: <a href="https://www.facebook.com/LuthWorldRelief">LuthWorldRelief</a></p>
-                        <p>Twitter: <a href="https://twitter.com/LuthWorldRelief">@LuthWorldRelief</a></p>
+                        <p> ¿Preguntas o Sugerencias?</p><br>
+                        <p>Envianos sus comentarios y estaremos en contacto con usted lo mas pronto posible<p>
+                        <br>
+                        <p>Si desea conocer un poco mas sobre el <b>Instituto
+                         Hondureño del Café</b> por favor visite nuestro sitio 
+                        web:<br> <br><a href="ihcafe">Ir al Sitio de IHCAFE</a></p>
                     </div>
                     <div class="dir">
-                        <p>Lutheran World Relief es un ministerio de Luteranos estadounidenses, que sirven para comunidades que viven en extrema pobreza alrededor del mundo.</p>
-                        <!--  <p>Vestibulum porta diam et elit placerat molestie.</p>
-                        <p>Teléfono: 999-9999-9999</p>-->
+                       
                     </div>
                    <!-- <div class="dir">
                         <p>Cum sociis natoque</p>
@@ -104,7 +102,6 @@
                     </div> -->
                 </div>
                 <div class="col-xs-11 col-sm-6 col-md-6">
-                    <h2>CONTÁCTENOS</h2>
                     <form>
                         <div class="row">
                             <div class="col-xs-6">
@@ -133,9 +130,18 @@
         </div>
         <div class="container-fluid">
             <div class="row copyright">
-                <div class="col-md-12">
-                    IHCAFE - Instituto Hondureño del café.
+                <div class="container">
+                <div class="col-sm-6">
+                    <div class="pull-left">
+                    <a href="http://ihcafe.hn/" target="_blank"><img  src="{% static 'img/ihcafe.png' %}"/></a>
+                    </div>
                 </div>
+                <div class="col-sm-6">
+                    <div class="pull-right">
+                        Desarrollado Web y App por <a href="https://lwr.org/where-we-work/honduras" target="_blank"><img  src="{% static 'img/lwr.png' %}"/></a>
+                    </div>
+                </div>
+            </div>
             </div>
         </div>
     </footer>
