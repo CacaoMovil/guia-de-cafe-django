@@ -76,7 +76,7 @@
                                 <input type="hidden" name="guide-id" value="{{ guia.number }}">
                                 </form>
                              </a>
-                            <a class="des" href="{{guia.get_download_url}}" title="Descargar Guía"></a>
+                            <a class="des" href="javascript:$('.js-print-form__{{ guia.number }}').submit();" title="Descargar Guía"></a>
                         </div>
                     </div>
                 </div>
