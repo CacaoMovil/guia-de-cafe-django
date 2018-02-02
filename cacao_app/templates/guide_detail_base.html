@@ -144,7 +144,7 @@
                 </ul>
                 <!-- Brand sm -->
                 <div class="navbar-title text-uppercase">
-                    <span><strong class="visible-lg-inline">GUÍA {% if contenido %}{{ contenido.section.guide.number }}{% else %}{{ guia.number }}{% endif %}: </strong>{% if contenido %}{{ contenido.section.guide.name }}{% else %}{{ guia.name }}{% endif %}</span>
+                    <span><strong class="visible-lg-inline">CARTILLA: {% if contenido %}{{ contenido.section.guide.number }}{% else %}{{ guia.number }}{% endif %}: </strong>{% if contenido %}{{ contenido.section.guide.name }}{% else %}{{ guia.name }}{% endif %}</span>
                 </div>
                 <!--/ Brand sm -->
                 <!--/ END Left nav -->
@@ -186,7 +186,7 @@
                     <li>
                         <a href="javascript:void(0);" data-toggle="sidebar" data-direction="rtl" rel="tooltip" title="Guías" id="list-guide">
                             <span class="icon"><i class="flaticon-document9"></i></span>
-                            <span class="text hidden-xs">Guías</span>
+                            <span class="text hidden-xs">CARTILLAS</span>
                         </a>
                     </li>
                     <!--/ Offcanvas right -->
@@ -293,7 +293,7 @@
                                   <div class="header back-guia{{ guia.number }} text-uppercase text-white">
                                       <h4 class="title" >{{ guia.name }}</h4>
                                       <div class="guia" >
-                                          <span>Guía</span>
+                                          <span></span>
                                           <span class="number">{{ guia.number }}</span>
                                       </div>
                                   </div>

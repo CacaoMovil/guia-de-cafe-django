@@ -4,9 +4,9 @@
 {% block content %}
     <div class="container-fluid">
         <div class="heroimage row">
-            <div class="herotexto">Guías para caf&eacute;</div>
+            <div class="herotexto">Cartillas para caf&eacute;</div>
             <div class="herotexto">Por una caficultura rentable y competitiva</div>
-            <a class="btn mt20" href="#guias">VER LAS GUÍAS</a>
+            <a class="btn mt20" href="#guias">VER LAS CARTILLAS</a>
         </div>
     </div>
     <div class="about">
@@ -50,9 +50,9 @@
             <div class="row">
                 <a name="guias"></a>
                 <div class="guiatext">
-                    <h2>GUÍAS</h2>
+                    <h2>CARTILLAS</h2>
                     <div class="divwhite"></div>
-                    <p>CLICK EN CADA GU&Iacute;A PARA LEERLA</p>
+                    <p>CLICK EN CADA CARTILLA PARA LEERLA</p>
                 </div>
             </div>
         </div>
@@ -69,7 +69,7 @@
                             <p class="titulo"><a href="{{ guia.get_absolute_url }}">{{ guia.name }}</a></p>
                         </div>
                         <div class="guiabtn">
-                            <a class="ver" href="{{ guia.get_absolute_url }}"><span>VER GU&Iacute;A</span></a>
+                            <a class="ver" href="{{ guia.get_absolute_url }}"><span>VER</span></a>
                             <a class="imp" href="javascript:$('.js-print-form__{{ guia.number }}').submit();" class="btn back-guia{{ guia.number }}" title="Imprimir Guía">
                                 <form class="js-print-form__{{ guia.number }}" method="GET" action="{% url 'pdf-kit:download' %}">
                                 {% csrf_token %}
@@ -98,8 +98,8 @@
                         <img class="pull-left" src="{% static 'img/online.png' %}" />
                         <h3>VERSIÓN ONLINE</h3>
                     </div>
-                    <p>Es una versión de las guías que puede ser consultada visitando el sitio <a href="http://ihcafe.cacaomovil.com/">ihcafe.cacaomovil.com</a> utilizando cualquier navegador web. Es una versión funcionalmente orientada para la navegación desde computadoras de escritorio o laptops, pero también se adapta a cualquier pantalla de tablet o dispositivo móvil.</p>
-                    <p>En el menú principal se puede acceder a la Lista de guías y a información Acerca de la aplicación. Dentro de cada guía, en la parte izquierda, se cuenta con un menú desplegable que muestra el contenido de la guía y permite navegar en ella. </p>
+                    <p>Es una versión de las cartillas que puede ser consultada visitando el sitio <a href="http://ihcafe.cacaomovil.com/">ihcafe.cacaomovil.com</a> utilizando cualquier navegador web. Es una versión funcionalmente orientada para la navegación desde computadoras de escritorio o laptops, pero también se adapta a cualquier pantalla de tablet o dispositivo móvil.</p>
+                    <p>En el menú principal se puede acceder a la Lista de cartillas y a información Acerca de la aplicación. Dentro de cada cartilla, en la parte izquierda, se cuenta con un menú desplegable que muestra el contenido de la cartilla y permite navegar en ella. </p>
                     <img class="img-responsive full" src="{% static 'img/como-funciona.jpg' %}" />
                 </div>
                 <div class="col-sm-6 col-md-6">
@@ -107,7 +107,7 @@
                         <img class="pull-left" src="{% static 'img/android.png' %}" />
                         <h3>VERSIÓN APP ANDROID</h3>
                     </div>
-                    <p>Es una versión disponible para dispositivos móviles Android, la cual ofrece una experiencia nativa de exploración del contenido de las guías en tu smartphone. La conexión a internet del smartphone es únicamente requerida para descargar los contenidoe  cada gu&iacute;a.</p>
+                    <p>Es una versión disponible para dispositivos móviles Android, la cual ofrece una experiencia nativa de exploración del contenido de las cartillas en tu smartphone. La conexión a internet del smartphone es únicamente requerida para descargar los contenidos  cada cartilla.</p>
                     <p> Posteriormente a la descarga, los contenidos pueden ser visualizados sin el requerimiento de una conectividad a la red.</p><p style="height: 35px"></p>
                     <img class="img-responsive full" src="{% static 'img/como-funciona-2.jpg' %}" />
                 </div>
