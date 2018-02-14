@@ -64,3 +64,4 @@ class Production(Common):
     USE_PERSEUS = False
 
     VENV_PATH = values.Value('/home/example/.virtualenvs/example')
+    THUMBNAIL_DEBUG = False
