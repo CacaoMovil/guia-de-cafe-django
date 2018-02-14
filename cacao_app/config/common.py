@@ -345,3 +345,4 @@ class Common(Configuration):
     PERSEUS_SOURCE_DIR = '/tmp/ihcafe/guia'
     # config for create pdf's
     PDF_KIT_MODEL = 'cacao.Content'
+    THUMBNAIL_DEBUG = True
